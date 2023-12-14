@@ -61,8 +61,11 @@ let numbers = (1...20).publisher
 
 
 let newPassthroughSubject = PassthroughSubject<Int, Never>()
+let newArray = [1,2,3,4,5,6,nil].publisher
 
-newPassthroughSubject
+newArray
+    .compactMap{ $0 }
+    .print()
     .contains(3)
     .sink(receiveCompletion: {
         print("Completed", $0)
@@ -70,9 +73,4 @@ newPassthroughSubject
         print("🚩", $0)
     })
 
-newPassthroughSubject.send(5)
-newPassthroughSubject.send(4)
-newPassthroughSubject.send(2)
-newPassthroughSubject.send(1)
-newPassthroughSubject.send(completion: .finished)
 
