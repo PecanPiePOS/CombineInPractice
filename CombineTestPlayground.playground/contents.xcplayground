@@ -6,5 +6,7 @@
         <page name='Reduce'/>
         <page name='CurrentValueSubjectTEst'/>
         <page name='Networking'/>
+        <page name='Debugging'/>
+        <page name='PerformingSideEffects'/>
     </pages>
 </playground>

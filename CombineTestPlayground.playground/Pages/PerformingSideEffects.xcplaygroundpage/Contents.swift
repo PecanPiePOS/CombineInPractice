@@ -1,7 +1,72 @@
-//: [Previous](@previous)
-
+import Combine
 import Foundation
 
-var greeting = "Hello, playground"
+/**
+ Let's fetch a method getting data from a URL.
+ Then try handleEvents()
+ */
 
-//: [Next](@next)
+let urlString: String = "https://www.raywenderlich.com/"
+let url = URL(string: urlString)!
+var subscriptions = Set<AnyCancellable>()
+
+func gettingDataWithOutHandlingEffects() {
+    let subscription = URLSession.shared.dataTaskPublisher(for: url)
+        .sink { completion in
+            if case .failure(let error) = completion {
+                print("Retrieving data failed with error: \(error)")
+            }
+        } receiveValue: { data, response in
+            print("Data size: \(data.count), response of = \(response)")
+        }
+        .store(in: &subscriptions)
+}
+
+func gettingDataWithHandlingEffects() {
+    let subscription = URLSession.shared.dataTaskPublisher(for: url)
+        .print("publisher")
+        .handleEvents(receiveSubscription: { _ in
+            print("------Network request will start------")
+        }, receiveOutput: { _ in
+            print("------Network data of response received------")
+        }, receiveCancel: {
+            print("------Network request cancelled------")
+        })
+        .sink { completion in
+            if case .failure(let error) = completion {
+                print("Retrieving data failed with error: \(error)")
+            }
+        } receiveValue: { data, response in
+            print("Data size: \(data.count), response of = \(response)")
+        }
+}
+
+gettingDataWithHandlingEffects()
+
+
+
+
+
+
+
+
+
+
+public class TimeLogger: TextOutputStream {
+    
+    private var previous = Date()
+    private let formatter = NumberFormatter()
+    
+    public init() {
+        formatter.maximumFractionDigits = 5
+        formatter.minimumFractionDigits = 5
+    }
+    
+    public func write(_ string: String) {
+        let trimmed = string.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return }
+        let now = Date()
+        print("+\(formatter.string(for: now.timeIntervalSince(previous))!)s: \(string)")
+        previous = now
+    }
+}
