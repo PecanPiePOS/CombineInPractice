@@ -6,9 +6,10 @@ import Foundation
  Then try handleEvents()
  */
 
-let urlString: String = "https://www.raywenderlich.com/"
+let urlString: String = "https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=10"
 let url = URL(string: urlString)!
 var subscriptions = Set<AnyCancellable>()
+
 
 func gettingDataWithOutHandlingEffects() {
     let subscription = URLSession.shared.dataTaskPublisher(for: url)
@@ -41,8 +42,21 @@ func gettingDataWithHandlingEffects() {
         }
 }
 
-gettingDataWithHandlingEffects()
+func gettingDataWithBreakpoint() {
+    let subscription = URLSession.shared.dataTaskPublisher(for: url)
+        .breakpoint(receiveOutput: { result in
+            return result.data.count > 300
+        })
+        .sink { completion in
+            if case .failure(let error) = completion {
+                print("Retrieving data failed with error: \(error)")
+            }
+        } receiveValue: { data, response in
+            print("Data size: \(data.count), response of = \(response)")
+        }
+}
 
+gettingDataWithBreakpoint()
 
 
 
