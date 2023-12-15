@@ -58,14 +58,6 @@ func gettingDataWithBreakpoint() {
 
 gettingDataWithBreakpoint()
 
-
-
-
-
-
-
-
-
 public class TimeLogger: TextOutputStream {
     
     private var previous = Date()
