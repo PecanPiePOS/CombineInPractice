@@ -19,9 +19,22 @@ import Combine
  
  */
 
+/**
+ Subscriber 의 내부 enum "Completion" 에는 2 개의 케이스가 있다.
+ 1. .finished
+ 2. .failure(Error)
+ 
+ */
 
-func basicOfGettingDataFrom(urlString: String) {
-    guard let url = URL(string: urlString) else { return }
+struct MyModel: Codable {
+    let id: Int
+    let contents: [String]
+}
+
+let urlString: String = ""
+let url = URL(string: urlString)!
+
+func basicOfGettingDataFrom() {
     let subscription = URLSession.shared.dataTaskPublisher(for: url)
         .sink { completion in
             if case .failure(let error) = completion {
@@ -32,3 +45,31 @@ func basicOfGettingDataFrom(urlString: String) {
         }
 }
 
+func tryDecodingAddedMethod() {
+    /// 매번 JSONDecoder 인스턴스를 생성한다.
+    let subscription = URLSession.shared.dataTaskPublisher(for: url)
+        .tryMap { data, _ in
+            try JSONDecoder().decode(MyModel.self, from: data)
+        }
+        .sink { completion in
+            if case .failure(let error) = completion {
+                print("Error occured: \(error)")
+            }
+        } receiveValue: { result in
+            print("Retrieved data: \(result)")
+        }
+}
+
+func reducedAPIGetMethod() {
+    /// "map - decode" 를 사용하면, response 는 사용하지 못하는건가?? -> 그렇다.
+    let subscription = URLSession.shared.dataTaskPublisher(for: url)
+        .map(\.data)
+        .decode(type: MyModel.self, decoder: JSONDecoder())
+        .sink { completion in
+            if case .failure(let error) = completion {
+                print("Error occured: \(error)")
+            }
+        } receiveValue: { result in
+            print("Shorten Method is used and the result is: \(result)")
+        }
+}
