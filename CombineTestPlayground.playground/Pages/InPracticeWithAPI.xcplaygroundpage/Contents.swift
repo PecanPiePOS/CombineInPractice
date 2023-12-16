@@ -10,7 +10,7 @@ public struct API {
     var maxStories = 10
     
     private let decoder = JSONDecoder()
-    private let apiQueue = DispatchQueue(label: "API", qos: .default, attributes: .concurrent)
+    private var apiQueue: DispatchQueue
     
     enum Error: LocalizedError {
         case addressUnreachable(URL)
@@ -40,6 +40,11 @@ public struct API {
                 return EndPoint.baseURL.appending(path: "item/\(id).json")
             }
         }
+    }
+    
+    init(queueLabel: String = "API", defaultMaximumStories maxStories: Int = 10, at queue: DispatchQueue.Attributes = .concurrent, with qos: DispatchQoS = .default) {
+        self.maxStories = maxStories
+        self.apiQueue = DispatchQueue(label: queueLabel, qos: .default, attributes: queue)
     }
 }
 
