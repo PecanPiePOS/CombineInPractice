@@ -1,5 +1,8 @@
 import Combine
 import Foundation
+import PlaygroundSupport
+
+print("------API START------")
 
 public struct API {
     
@@ -31,9 +34,9 @@ public struct API {
         var url: URL {
             switch self {
             case .stories:
-                return EndPoint.baseURL.appending(path: "newsstories.json")
+                return EndPoint.baseURL.appending(path: "newstories.json")
             case .story(let id):
-                return EndPoint.baseURL.appending(path: "item\(id).json")
+                return EndPoint.baseURL.appending(path: "item/\(id).json")
             }
         }
     }
@@ -42,7 +45,7 @@ public struct API {
 extension API {
     
     func story(id: Int) -> AnyPublisher<Story, Error> {
-        URLSession.shared.dataTaskPublisher(for: EndPoint.story(id))
+        URLSession.shared.dataTaskPublisher(for: EndPoint.story(id).url)
             .receive(on: apiQueue)
             .map(\.data)
             .decode(type: Story.self, decoder: decoder)
@@ -54,7 +57,6 @@ extension API {
     
     func mergedStories(ids storyIDs: [Int]) -> AnyPublisher<Story, Error> {
         let storyIDs = Array(storyIDs.prefix(maxStories))
-        
         precondition(!storyIDs.isEmpty)
         
         let initialPublisher = story(id: storyIDs[0])
@@ -96,3 +98,13 @@ extension API {
 
 let api = API()
 var subscriptions = Set<AnyCancellable>()
+
+api.stories()
+    .sink {
+        print("✅ Completed: \($0)")
+    } receiveValue: {
+        print("---- Received some news: \n\($0)")
+    }
+    .store(in: &subscriptions)
+
+PlaygroundPage.current.needsIndefiniteExecution = true
