@@ -106,6 +106,8 @@ api.stories()
     } receiveValue: {
         print("---- Received some news: \n\($0)")
     }
+    /// Why the API Call doesn't work when it isn't stored in AnyCancellables?
+    /// Shouldn't it just work?
     .store(in: &subscriptions)
 
 PlaygroundPage.current.needsIndefiniteExecution = true
