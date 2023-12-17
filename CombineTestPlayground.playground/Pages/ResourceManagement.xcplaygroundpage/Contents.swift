@@ -26,13 +26,13 @@ let sharingPublihser = numbersToShare.publisher.share()
 
 /**
  
- "Future" is One another way to share the result of a computation.
- 
+ - "Future" is One another way to share the result of a computation.
+ - "Futrue" is Class. Combine-Future.
  */
 
 func performSomeWork() throws -> Int {
     print("----- Doing some works:")
-    return 7
+    return (1...5).randomElement()!
 }
 
 /// fullfill is the closure "Promise"
@@ -63,5 +63,4 @@ let subscription2 = future
     } receiveValue: {
         print("Subscription2 received: \($0)")
     }
-
 
