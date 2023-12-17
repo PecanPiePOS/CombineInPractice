@@ -8,5 +8,6 @@
         <page name='Networking'/>
         <page name='Debugging'/>
         <page name='PerformingSideEffects'/>
+        <page name='ResourceManagement'/>
     </pages>
 </playground>

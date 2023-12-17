@@ -19,6 +19,7 @@
 		58254FF62B24D06800FEF41D /* TextFieldClearButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58254FF52B24D06800FEF41D /* TextFieldClearButtonModifier.swift */; };
 		58254FF92B24D2D800FEF41D /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58254FF82B24D2D800FEF41D /* View+.swift */; };
 		58254FFC2B24DA8B00FEF41D /* TextFieldWithSubTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58254FFB2B24DA8B00FEF41D /* TextFieldWithSubTitle.swift */; };
+		58DC322E2B2F039200561179 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DC322D2B2F039200561179 /* Storage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		58254FF52B24D06800FEF41D /* TextFieldClearButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldClearButtonModifier.swift; sourceTree = "<group>"; };
 		58254FF82B24D2D800FEF41D /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		58254FFB2B24DA8B00FEF41D /* TextFieldWithSubTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithSubTitle.swift; sourceTree = "<group>"; };
+		58DC322D2B2F039200561179 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		58254FC12B24402400FEF41D /* CombineInPractice */ = {
 			isa = PBXGroup;
 			children = (
+				58DC322C2B2F038600561179 /* Store */,
 				58254FF02B24C8F600FEF41D /* Apps */,
 				58254FEF2B24C8E900FEF41D /* Views */,
 				58254FF42B24D01600FEF41D /* Modifiers */,
@@ -196,6 +199,14 @@
 				58254FFB2B24DA8B00FEF41D /* TextFieldWithSubTitle.swift */,
 			);
 			path = Builders;
+			sourceTree = "<group>";
+		};
+		58DC322C2B2F038600561179 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				58DC322D2B2F039200561179 /* Storage.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +344,7 @@
 				58254FF62B24D06800FEF41D /* TextFieldClearButtonModifier.swift in Sources */,
 				58254FC72B24402400FEF41D /* Item.swift in Sources */,
 				58254FF92B24D2D800FEF41D /* View+.swift in Sources */,
+				58DC322E2B2F039200561179 /* Storage.swift in Sources */,
 				58254FC32B24402400FEF41D /* CombineInPracticeApp.swift in Sources */,
 				58254FFC2B24DA8B00FEF41D /* TextFieldWithSubTitle.swift in Sources */,
 			);
