@@ -9,5 +9,6 @@
         <page name='Debugging'/>
         <page name='PerformingSideEffects'/>
         <page name='ResourceManagement'/>
+        <page name='InPracticeWithAPI'/>
     </pages>
 </playground>
