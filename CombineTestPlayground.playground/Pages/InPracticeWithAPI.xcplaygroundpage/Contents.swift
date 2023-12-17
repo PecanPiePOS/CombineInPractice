@@ -2,6 +2,7 @@ import Combine
 import Foundation
 import PlaygroundSupport
 
+// MARK: - Setting API Struct
 print("------API START------")
 
 public struct API {
