@@ -11,5 +11,6 @@
         <page name='ResourceManagement'/>
         <page name='InPracticeWithAPI'/>
         <page name='WhatIsFuture'/>
+        <page name='WhatIsSubscription'/>
     </pages>
 </playground>
