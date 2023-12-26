@@ -10,5 +10,6 @@
         <page name='PerformingSideEffects'/>
         <page name='ResourceManagement'/>
         <page name='InPracticeWithAPI'/>
+        <page name='WhatIsFuture'/>
     </pages>
 </playground>
