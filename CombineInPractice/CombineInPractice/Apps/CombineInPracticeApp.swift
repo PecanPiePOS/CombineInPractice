@@ -25,7 +25,7 @@ struct CombineInPracticeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ThreadCheckView()
         }
         .modelContainer(sharedModelContainer)
     }

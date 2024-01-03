@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		58254FC32B24402400FEF41D /* CombineInPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58254FC22B24402400FEF41D /* CombineInPracticeApp.swift */; };
-		58254FC52B24402400FEF41D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58254FC42B24402400FEF41D /* ContentView.swift */; };
 		58254FC72B24402400FEF41D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58254FC62B24402400FEF41D /* Item.swift */; };
 		58254FC92B24402500FEF41D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58254FC82B24402500FEF41D /* Assets.xcassets */; };
 		58254FCC2B24402500FEF41D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58254FCB2B24402500FEF41D /* Preview Assets.xcassets */; };
@@ -18,8 +17,8 @@
 		58254FF32B24C95F00FEF41D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58254FF22B24C95F00FEF41D /* SignUpView.swift */; };
 		58254FF62B24D06800FEF41D /* TextFieldClearButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58254FF52B24D06800FEF41D /* TextFieldClearButtonModifier.swift */; };
 		58254FF92B24D2D800FEF41D /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58254FF82B24D2D800FEF41D /* View+.swift */; };
-		58254FFC2B24DA8B00FEF41D /* TextFieldWithSubTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58254FFB2B24DA8B00FEF41D /* TextFieldWithSubTitle.swift */; };
 		58DC322E2B2F039200561179 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DC322D2B2F039200561179 /* Storage.swift */; };
+		58E6C2292B45266000AF3F5B /* ThreadCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E6C2282B45266000AF3F5B /* ThreadCheckView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +41,6 @@
 /* Begin PBXFileReference section */
 		58254FBF2B24402400FEF41D /* CombineInPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineInPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58254FC22B24402400FEF41D /* CombineInPracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineInPracticeApp.swift; sourceTree = "<group>"; };
-		58254FC42B24402400FEF41D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		58254FC62B24402400FEF41D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		58254FC82B24402500FEF41D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58254FCB2B24402500FEF41D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -54,8 +52,8 @@
 		58254FF22B24C95F00FEF41D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		58254FF52B24D06800FEF41D /* TextFieldClearButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldClearButtonModifier.swift; sourceTree = "<group>"; };
 		58254FF82B24D2D800FEF41D /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
-		58254FFB2B24DA8B00FEF41D /* TextFieldWithSubTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithSubTitle.swift; sourceTree = "<group>"; };
 		58DC322D2B2F039200561179 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		58E6C2282B45266000AF3F5B /* ThreadCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadCheckView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +104,9 @@
 		58254FC12B24402400FEF41D /* CombineInPractice */ = {
 			isa = PBXGroup;
 			children = (
-				58DC322C2B2F038600561179 /* Store */,
 				58254FF02B24C8F600FEF41D /* Apps */,
+				58E6C2272B45262200AF3F5B /* TestViews */,
+				58DC322C2B2F038600561179 /* Store */,
 				58254FEF2B24C8E900FEF41D /* Views */,
 				58254FF42B24D01600FEF41D /* Modifiers */,
 				58254FF72B24D2BE00FEF41D /* Extensions */,
@@ -154,9 +153,7 @@
 		58254FEF2B24C8E900FEF41D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				58254FC42B24402400FEF41D /* ContentView.swift */,
 				58254FF22B24C95F00FEF41D /* SignUpView.swift */,
-				58254FFA2B24D51400FEF41D /* Builders */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,20 +190,20 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		58254FFA2B24D51400FEF41D /* Builders */ = {
-			isa = PBXGroup;
-			children = (
-				58254FFB2B24DA8B00FEF41D /* TextFieldWithSubTitle.swift */,
-			);
-			path = Builders;
-			sourceTree = "<group>";
-		};
 		58DC322C2B2F038600561179 /* Store */ = {
 			isa = PBXGroup;
 			children = (
 				58DC322D2B2F039200561179 /* Storage.swift */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		58E6C2272B45262200AF3F5B /* TestViews */ = {
+			isa = PBXGroup;
+			children = (
+				58E6C2282B45266000AF3F5B /* ThreadCheckView.swift */,
+			);
+			path = TestViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,13 +337,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				58254FF32B24C95F00FEF41D /* SignUpView.swift in Sources */,
-				58254FC52B24402400FEF41D /* ContentView.swift in Sources */,
 				58254FF62B24D06800FEF41D /* TextFieldClearButtonModifier.swift in Sources */,
 				58254FC72B24402400FEF41D /* Item.swift in Sources */,
 				58254FF92B24D2D800FEF41D /* View+.swift in Sources */,
 				58DC322E2B2F039200561179 /* Storage.swift in Sources */,
+				58E6C2292B45266000AF3F5B /* ThreadCheckView.swift in Sources */,
 				58254FC32B24402400FEF41D /* CombineInPracticeApp.swift in Sources */,
-				58254FFC2B24DA8B00FEF41D /* TextFieldWithSubTitle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
