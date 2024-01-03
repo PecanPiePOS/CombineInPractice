@@ -57,7 +57,8 @@ final class RandomNumberGenerator {
     
     private var subscriptions = Set<AnyCancellable>()
     private let subscriber: AnySubscriber<Int, Never>
-    let subject = PassthroughSubject<Int, Never>()
+    let subject = CurrentValueSubject<Int, Never>(11)
+//    let subject = PassthroughSubject<Int, Never>()
         
     init() {
         subscriber = AnySubscriber(receiveSubscription: { subscription in
