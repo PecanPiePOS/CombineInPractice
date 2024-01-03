@@ -28,6 +28,27 @@ struct ThreadCheckView: View {
             Button("Complete") {
                 generator.completeGenerator()
             }
+            
+            Button("CancelTest") {
+                cancelSomeCancellable()
+            }
+            .padding()
+        }
+    }
+    
+    func cancelSomeCancellable() {
+        let someCancellable = [20].publisher
+            .handleEvents(receiveRequest:  { _ in
+                print("Received Cancel - \(Thread.current)")
+            })
+            .delay(for: 50, scheduler: DispatchQueue.main)
+            .receive(on: DispatchQueue.global())
+            .sink { someValue in
+                print("Value: \(someValue)")
+            }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            someCancellable.cancel()
         }
     }
 }
@@ -61,7 +82,7 @@ final class RandomNumberGenerator {
             }, receiveRequest: { _ in
                 print("-::::: Received Request - Thread of \(Thread.current)")
             })
-            .subscribe(on: DispatchQueue.global())
+            .receive(on: DispatchQueue.global())
             .subscribe(subscriber)
     }
     
